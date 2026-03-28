@@ -103,6 +103,18 @@ const negotiate = async (req, res) => {
             });
         }
 
+        if (offer && offer > session.currentAsk) {
+            await session.save();
+            return res.status(200).json({
+                victorMessage: `I see your offer of $${offer.toLocaleString()}... and I raise you nothing. My current ask is still $${session.currentAsk.toLocaleString()}. Don't get cute.`,
+                counter: session.currentAsk,
+                outcome: 'continue',
+                dealPrice: null,
+                round: session.round,
+                currentAsk: session.currentAsk
+            });
+        }
+
         if (isFinalOffer(message) && offer) {
             if (offer >= product.floorPrice) {
                 session.status = 'finished';
