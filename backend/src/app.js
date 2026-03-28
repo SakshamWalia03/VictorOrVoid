@@ -3,12 +3,13 @@ import morgan from 'morgan';
 import cors from 'cors';
 import gameRouter from './routes/game.route.js';
 import leaderboardRouter from './routes/leaderboard.route.js';
+import config from './config/config.js';
 
 const app = express();
 
 app.use(cors(
     {
-        origin: '*',
+        origin: ['http://localhost:5173', config.frontendUrl],
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         allowedHeaders: ['Content-Type', 'Authorization']
     }
