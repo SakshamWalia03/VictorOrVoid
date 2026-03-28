@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VictorOrVoid — Negotiate or Lose Everything</title>
+    <meta
+      name="description"
+      content="A high-stakes AI negotiation game. Face Victor, the cold calculating broker. Make your offer. Victor or Void."
+    />
+    <meta name="theme-color" content="#07070f" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="VictorOrVoid — Negotiate or Lose Everything"
+    />
+    <meta
+      property="og:description"
+      content="Face Victor. 8 rounds. No second chances."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Prevent flash of wrong theme -->
+    <script>
+      try {
+        const stored = localStorage.getItem("vov-theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
